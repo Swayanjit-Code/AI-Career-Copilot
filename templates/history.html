@@ -1,0 +1,21 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Your History</h2>
+
+{% for r in reports %}
+<div class="card">
+    <p><strong>Resume Preview:</strong></p>
+    <p>{{ r.resume_text[:150] }}</p>
+
+    <hr>
+
+    <h3>Analysis Result</h3>
+    <p>{{ r.result }}</p>
+</div>
+{% else %}
+<p>No reports found.</p>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,584 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ==============================
+   GLOBAL DESIGN
+============================== */
+
+:root {
+    --primary: #6366f1;
+    --primary-light: #818cf8;
+    --secondary: #a855f7;
+    --background: #080e1e;
+    --surface: #111b31;
+    --surface-light: #192641;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --border: rgba(148, 163, 184, 0.15);
+    --success: #22c55e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background:
+        radial-gradient(
+            ellipse at 15% 15%,
+            rgba(99, 102, 241, 0.15),
+            transparent 40%
+        ),
+        radial-gradient(
+            ellipse at 85% 80%,
+            rgba(168, 85, 247, 0.10),
+            transparent 40%
+        ),
+        var(--background);
+
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.7;
+}
+
+.container {
+    width: 90%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+/* ==============================
+   HEADER & NAVIGATION
+============================== */
+
+header {
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: white;
+    background: rgba(99, 102, 241, 0.18);
+    transform: translateY(-2px);
+}
+
+nav a:last-child {
+    background: rgba(239, 68, 68, 0.10);
+    color: #fca5a5;
+}
+
+nav a:last-child:hover {
+    background: rgba(239, 68, 68, 0.22);
+}
+
+/* ==============================
+   MAIN CONTENT
+============================== */
+
+main.container {
+    flex: 1;
+    padding-top: 55px;
+    padding-bottom: 70px;
+}
+
+main h2 {
+    font-size: clamp(26px, 4vw, 36px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+    color: #f8fafc;
+}
+
+h3 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* ==============================
+   CARDS
+============================== */
+
+.card {
+    background: linear-gradient(
+        145deg,
+        rgba(30, 41, 59, 0.95),
+        rgba(15, 23, 42, 0.95)
+    );
+
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 35px;
+    margin-bottom: 28px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.20),
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
+
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    border-color: rgba(129, 140, 248, 0.40);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.30);
+}
+
+/* ==============================
+   FORM ELEMENTS
+============================== */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 15px 18px;
+
+    background: rgba(15, 23, 42, 0.85);
+    color: white;
+
+    border: 1px solid #334155;
+    border-radius: 12px;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #64748b;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.13);
+    background: rgba(15, 23, 42, 1);
+}
+
+textarea {
+    min-height: 190px;
+    resize: vertical;
+}
+
+input[type="file"] {
+    border: 2px dashed #475569;
+    background: rgba(99, 102, 241, 0.05);
+    padding: 24px;
+    cursor: pointer;
+}
+
+input[type="file"]:hover {
+    border-color: var(--primary-light);
+    background: rgba(99, 102, 241, 0.10);
+}
+
+input[type="file"]::file-selector-button {
+    background: #334155;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin-right: 15px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+form p {
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* ==============================
+   BUTTONS
+============================== */
+
+button {
+    width: 100%;
+    padding: 16px 24px;
+
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    color: white;
+    border: none;
+    border-radius: 12px;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.25);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(99, 102, 241, 0.40);
+    filter: brightness(1.1);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* ==============================
+   LOGIN & SIGNUP
+============================== */
+
+.auth-container {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 0;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 450px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(30, 41, 59, 0.96),
+        rgba(15, 23, 42, 0.98)
+    );
+
+    border: 1px solid rgba(129, 140, 248, 0.20);
+    border-radius: 24px;
+
+    padding: 45px 38px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.40),
+        0 0 70px rgba(99, 102, 241, 0.07);
+}
+
+.auth-card h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #a5b4fc,
+        #c084fc
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sub-text {
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.auth-card form {
+    margin-top: 20px;
+}
+
+.auth-card form .sub-text {
+    margin: -8px 0 0;
+    font-size: 12px;
+}
+
+.auth-links {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.auth-links a,
+.switch-auth a {
+    color: #a5b4fc;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.auth-links a:hover,
+.switch-auth a:hover {
+    color: #d8b4fe;
+    text-decoration: underline;
+}
+
+.switch-auth {
+    text-align: center;
+    margin-top: 25px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* ==============================
+   AI ANALYSIS RESULTS
+============================== */
+
+.red {
+    background: linear-gradient(
+        145deg,
+        rgba(30, 41, 59, 0.95),
+        rgba(15, 23, 42, 0.98)
+    );
+
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 35px;
+    margin-top: 30px;
+
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.20);
+}
+
+.red h3 {
+    color: #c4b5fd;
+    font-size: 18px;
+
+    margin-top: 30px;
+    margin-bottom: 15px;
+
+    padding-left: 14px;
+    border-left: 4px solid var(--primary);
+}
+
+.red h3:first-child {
+    margin-top: 0;
+}
+
+.red ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.red li {
+    background: rgba(30, 41, 59, 0.65);
+    border: 1px solid rgba(148, 163, 184, 0.10);
+    border-radius: 12px;
+
+    padding: 15px 18px;
+    padding-left: 42px;
+
+    color: #e2e8f0;
+    font-size: 14px;
+
+    position: relative;
+    overflow-wrap: anywhere;
+
+    transition: all 0.2s ease;
+}
+
+.red li::before {
+    content: "✓";
+    position: absolute;
+    left: 16px;
+    top: 15px;
+    color: #818cf8;
+    font-weight: 800;
+}
+
+.red li:hover {
+    background: rgba(99, 102, 241, 0.10);
+    border-color: rgba(99, 102, 241, 0.25);
+    transform: translateX(3px);
+}
+
+/* ==============================
+   HISTORY PAGE
+============================== */
+
+.card > p {
+    color: #cbd5e1;
+    margin-bottom: 12px;
+    overflow-wrap: anywhere;
+}
+
+.card strong {
+    color: #a5b4fc;
+}
+
+.card hr {
+    border: none;
+    height: 1px;
+    background: var(--border);
+    margin: 25px 0;
+}
+
+.card ul {
+    padding-left: 22px;
+    margin-bottom: 20px;
+}
+
+.card li {
+    padding: 5px 0;
+    color: #cbd5e1;
+}
+
+/* ==============================
+   FOOTER
+============================== */
+
+footer {
+    padding: 25px 15px;
+    text-align: center;
+
+    background: rgba(15, 23, 42, 0.70);
+    border-top: 1px solid var(--border);
+}
+
+footer p {
+    color: #64748b;
+    font-size: 13px;
+}
+
+/* ==============================
+   SCROLLBAR
+============================== */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6366f1;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
+
+@media (max-width: 768px) {
+
+    .container {
+        width: 92%;
+    }
+
+    header {
+        padding: 15px 0;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 6px;
+    }
+
+    nav a {
+        font-size: 12px;
+        padding: 9px 12px;
+    }
+
+    main.container {
+        padding-top: 35px;
+        padding-bottom: 45px;
+    }
+
+    main h2 {
+        font-size: 25px;
+    }
+
+    .card,
+    .red {
+        padding: 22px;
+        border-radius: 16px;
+    }
+
+    .auth-card {
+        padding: 35px 24px;
+    }
+
+    .auth-card h2 {
+        font-size: 25px;
+    }
+
+    textarea {
+        min-height: 150px;
+    }
+
+    input,
+    textarea {
+        font-size: 16px;
+    }
+
+    button {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .auth-card {
+        padding: 28px 18px;
+    }
+
+    .card,
+    .red {
+        padding: 18px;
+    }
+
+    input[type="file"] {
+        padding: 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
