@@ -1,0 +1,7 @@
+Flask
+SQLAlchemy
+PyPDF2
+python-docx
+google-genai
+PyMySQL
+gunicorn
